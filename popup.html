@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>OH-SHIT</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <H1 style="text-align:center">OH-SHIT</H1>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#home">Bài tập cache</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu1">Chuyển đ/c ảo sang đ/c vật lý</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu2">SCAN / C-SCAN / LOOK / C-LOOK</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu3">Kích thước bảng phân trang & bộ nhớ chính</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu4">Tốc độ truyền dữ liệu ổ đĩa</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu5">Kích thước FAT</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu6">Kích thước i-Node</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu7">Giới thiệu</a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <!-- Bài tập cache -->
+    <div class="tab-pane container active" id="home">
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Thời gian truy cập cache</span>
+        </div>
+        <input id="c_time" value="10" type="text" class="form-control">
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Thời gian truy cập bộ nhớ</span>
+        </div>
+        <input id="m_time" value="100" type="text" class="form-control">
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Tỉ suất trúng Cache (TLB)</span>
+        </div>
+        <input id="tlb" value="0.35" type="text" class="form-control">
+      </div>
+      <button id="v_cache" class="btn btn-success float-right form-control my-2">:v</button>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Thời gian truy cập bộ nhớ trung bình</span>
+        </div>
+        <input id="ave" type="text" class="form-control">
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Thời gian truy cập bộ nhớ hiệu quả</span>
+        </div>
+        <input id="ave_eff" type="text" class="form-control">
+      </div>
+    </div>
+    <!-- Chuyển địa chỉ ảo sang địa chỉ vật lý -->
+    <div class="tab-pane container fade" id="menu1">
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Địa chỉ ảo:</span>
+        </div>
+        <input id="logic_add" type="text" class="form-control">
+        <div class="input-group-prepend">
+          <select id="sl_base_add" class="form-control form-control-sm">
+            <option>Hex (16)</option>
+            <option>Dec (10)</option>
+          </select>
+        </div>
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Kích thước Page (hoặc Frame):</span>
+        </div>
+        <input id="page_size" type="text" class="form-control">
+        <div class="input-group-prepend">
+          <select id="sl_page_size" class="form-control form-control-sm">
+            <option>byte</option>
+            <option>KB</option>
+          </select>
+        </div>
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Được phân vào Page:</span>
+          <button class="btn btn-primary" id="call_page_no">?</button>
+        </div>
+        <input id="page_no" type="text" class="form-control">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Offset:</span>
+        </div>
+        <input id="offset" type="text" class="form-control">
+
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">=> Frame (nhìn vào bảng phân trang ấy cậu):</span>
+        </div>
+        <input id="frame_no" type="text" class="form-control">
+      </div>
+      <button id="v_add_convert" class="btn btn-success float-right form-control my-2">:v</button>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> Địa chỉ vật lý:</span>
+        </div>
+        <input id="phy_add" type="text" class="form-control">
+      </div>
+    </div>
+    <!-- SCAN LOOK .... -->
+    <div class="tab-pane container fade" id="menu2">
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Số trục rãnh:</span>
+        </div>
+        <input id="numOfTrack" type="text" class="form-control">
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Yêu cầu vào/ra (FIFO):</span>
+        </div>
+        <input id="io_fifo" type="text" class="form-control">
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Vị trí thanh ghi hiện tại:</span>
+        </div>
+        <input id="curr_io" type="text" class="form-control">
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Vừa đáp ứng yêu cầu ở:</span>
+        </div>
+        <input id="last_io" type="text" class="form-control">
+      </div>
+      <button id="v_scan_look" class="btn btn-success float-right form-control my-2">:v</button>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">SCAN</span>
+        </div>
+        <input id="scan" type="textarea" class="form-control">
+      </div>
+      <p>Đầu đọc di chuyển qua " <span id="numOfTrackSCAN"></span> " trục rãnh</p>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">C-SCAN</span>
+        </div>
+        <input id="cscan" type="textarea" class="form-control">
+      </div>
+      <p>Đầu đọc di chuyển qua " <span id="numOfTrackCSCAN"></span> " trục rãnh</p>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">LOOK</span>
+        </div>
+        <input id="look" type="textarea" class="form-control">
+      </div>
+      <p>Đầu đọc di chuyển qua " <span id="numOfTrackLOOK"></span> " trục rãnh</p>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">C-LOOK</span>
+        </div>
+        <input id="clook" type="textarea" class="form-control">
+      </div>
+      <p>Đầu đọc di chuyển qua " <span id="numOfTrackCLOOK"></span> " trục rãnh</p>
+      <p style="color:red">Note1: Phần tool này phục vụ đề thi nên những trường hợp mà các yêu cầu nằm về một phía so
+        với vị trí của đầu đọc ghi sẽ ra kết quả sai</p>
+      <p style="color:red">Note2: Phần "Yêu cầu vào/ra (FIFO)" phải nhập đúng định dạng x, y, z hoặc x y z</p>
+    </div>
+    <!-- Tính kích thước bảng phân trang -->
+    <div class="tab-pane container fade" id="menu3">
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Kích thước bộ nhớ ảo</span>
+        </div>
+        <input id="virtual_size" value="10" type="text" class="form-control">
+        <div class="input-group-prepend">
+          <select id="sl_virtual_size" class="form-control form-control-sm">
+            <option>GB</option>
+            <option>MB</option>
+            <option>KB</option>
+            <option>byte</option>
+          </select>
+        </div>
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Kích thước Page (hoặc Frame)</span>
+        </div>
+        <input id="frame_size" type="text" class="form-control">
+        <div class="input-group-prepend">
+          <select id="sl_frame_size" class="form-control form-control-sm">
+            <option>KB</option>
+            <option>byte</option>
+          </select>
+        </div>
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Số Frame</span>
+        </div>
+        <input id="num_of_frame" type="text" class="form-control">
+        <div class="input-group-prepend">
+          <span class="input-group-text">(Hoặc) Số bit dùng để đánh địa chỉ vật lý</span>
+        </div>
+        <input id="num_of_bit_used" type="text" class="form-control">
+      </div>
+      <!-- <div class="input-group mb-3 input-group-sm">
+      </div> -->
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Kích thước một đơn vị ô nhớ</span>
+        </div>
+        <input id="unit_size" type="text" class="form-control">
+        <div class="input-group-prepend">
+          <select id="sl_unit_size" class="form-control form-control-sm">
+            <option>byte</option>
+            <option>KB</option>
+          </select>
+        </div>
+      </div>
+      <button id="v_page_table" class="btn btn-success float-right form-control my-2">:v</button>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Kích thước bảng phân trang</span>
+        </div>
+        <input id="page_table_size_bit" type="textarea" class="form-control">
+        <input id="page_table_size_byte" type="textarea" class="form-control">
+        <input id="page_table_size_KB" type="textarea" class="form-control">
+        <input id="page_table_size_MB" type="textarea" class="form-control">
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Kích thước bảng phân trang nghịch đảo</span>
+        </div>
+        <input id="r_page_table_size_bit" type="textarea" class="form-control">
+        <input id="r_page_table_size_byte" type="textarea" class="form-control">
+        <input id="r_page_table_size_KB" type="textarea" class="form-control">
+        <input id="r_page_table_size_MB" type="textarea" class="form-control">
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Dung lượng bộ nhớ chính</span>
+        </div>
+        <input id="mm_size_byte" type="textarea" class="form-control">
+        <input id="mm_size_KB" type="textarea" class="form-control">
+        <input id="mm_size_MB" type="textarea" class="form-control">
+        <input id="mm_size_GB" type="textarea" class="form-control">
+
+      </div>
+    </div>
+    <!-- Tốc độ truyền dữ liệu ổ đĩa -->
+    <div class="tab-pane container fade" id="menu4">
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Tốc độ trục quay (RPM)</span>
+        </div>
+        <input id="rpm" type="text" class="form-control">
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Số sector mỗi track</span>
+
+        </div>
+        <input id="sector_count" type="text" class="form-control">
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Kích thước 1 sector</span>
+        </div>
+        <input id="sector_size" type="text" class="form-control">
+        <div class="input-group-prepend">
+          <select id="sl_sector_size" class="form-control form-control-sm">
+            <option>byte</option>
+            <option>KB</option>
+            <option>bit</option>
+          </select>
+        </div>
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Thời gian tìm kiếm track trung bình (Nếu đề cho)</span>
+        </div>
+        <input id="ave_track_find_time" type="text" class="form-control">
+        <div class="input-group-prepend">
+          <span class="input-group-text">ms</span>
+        </div>
+      </div>
+      <button id="v_disk" class="btn btn-success float-right form-control my-2">:v</button>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Tốc độ truyền/đọc dữ liệu</span>
+        </div>
+        <input id="disk_speed_KbpSec" type="textarea" class="form-control">
+        <input id="disk_speed_KBpSec" type="textarea" class="form-control">
+        <input id="disk_speed_MBpSec" type="textarea" class="form-control">
+        <input id="disk_speed_GBpSec" type="textarea" class="form-control">
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <input id="disk_speed_KbpMin" type="textarea" class="form-control">
+        <input id="disk_speed_KBpMin" type="textarea" class="form-control">
+        <input id="disk_speed_MBpMin" type="textarea" class="form-control">
+        <input id="disk_speed_GBpMin" type="textarea" class="form-control">
+      </div>
+      <p style="color:red">Note 1: Ở phần "Thời gian tìm kiếm track trung bình" nếu đề cho nhưng tool ra kết quả khác
+        đáp án thì bỏ đi thử xem :3</p>
+      <p style="color:red">Note 2: Trong 1 số câu hỏi có sử dụng cụm từ "trung bình", theo ý hiểu của tác giả thì sẽ
+        lấy
+        kết quả thu được phía trên chia cho 2 là được. Tuy nhiên một số đề không sử dụng cụm từ "trung bình" mà kết quả
+        phía trên không khớp đáp án thì chỉ cần coi như là có chữ "trung bình" ( lấy kết quả phía trên /2 nhé :3 )</p>
+    </div>
+    <!-- Kích thước FAT-->
+    <div class="tab-pane container fade" id="menu5">
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Dung lượng ổ cứng</span>
+        </div>
+        <input id="disk_size" type="text" class="form-control">
+        <div class="input-group-prepend">
+          <select id="sl_disk_size" class="form-control form-control-sm">
+            <option>GB</option>
+            <option>TB</option>
+            <option>MB</option>
+            <option>KB</option>
+          </select>
+        </div>
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Kích thước mỗi khối (Block)</span>
+        </div>
+        <input id="block_size" type="text" class="form-control">
+        <div class="input-group-prepend">
+          <select id="sl_block_size" class="form-control form-control-sm">
+            <option>KB</option>
+            <option>byte</option>
+            <option>MB</option>
+          </select>
+        </div>
+      </div>
+      <button id="v_FAT" class="btn btn-success float-right form-control my-2">:v</button>
+
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Kích thước của FAT</span>
+        </div>
+        <input id="FAT_size" type="text" class="form-control">
+      </div>
+    </div>
+    <!-- Kích thước i-Node -->
+    <div class="tab-pane container fade" id="menu6">
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Số khối trực tiếp của i-node</span>
+        </div>
+        <input id="num_of_direct_block" value="12" type="text" class="form-control">
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Số khối gián tiếp cấp 1</span>
+        </div>
+        <input id="deg1_block" value="1" type="text" class="form-control">
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Số khối gián tiếp cấp 2</span>
+        </div>
+        <input id="deg2_block" value="1" type="text" class="form-control">
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Số khối gián tiếp cấp 3</span>
+        </div>
+        <input id="deg3_block" value="1" type="text" class="form-control">
+      </div>
+
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Kích thước mỗi khối (Block)</span>
+        </div>
+        <input id="block_data_size" type="text" class="form-control">
+        <div class="input-group-prepend">
+          <select id="sl_block_data_size" class="form-control form-control-sm">
+            <option>KB</option>
+            <option>MB</option>
+            <option>byte</option>
+          </select>
+        </div>
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Kích thước số hiệu của khối</span>
+        </div>
+        <input id="block_pointer_size" type="text" class="form-control">
+        <div class="input-group-prepend">
+          <select id="sl_block_pointer_size" class="form-control form-control-sm">
+            <option>byte</option>
+            <option>KB</option>
+            <option>MB</option>
+          </select>
+        </div>
+      </div>
+      <button id="v_iNode" class="btn btn-success float-right form-control my-2">:v</button>
+
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Kích thước của tập tin lớn nhất</span>
+        </div>
+        <input id="max_file_size" type="text" class="form-control">
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Số khối dữ liệu của tập tin lớn nhất</span>
+        </div>
+        <input id="num_of_block_data" type="text" class="form-control">
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Số khối chỉ mục của tập tin lớn nhất</span>
+        </div>
+        <input id="num_of_block_index" type="text" class="form-control">
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Số khối lưu trên ổ đĩa của tập tin lớn nhất</span>
+        </div>
+        <input id="num_of_block_in_disk" type="text" class="form-control">
+      </div>
+      <div class="input-group mb-3 input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Kích thước thực tế lưu trên ổ đĩa của tập tin lớn nhất</span>
+        </div>
+        <input id="max_file_size_in_disk" type="text" class="form-control">
+      </div>
+    </div>
+    <!-- Giới thiệu -->
+    <div class="tab-pane container fade" id="menu7">
+      <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+        <div class="col-md-5 p-lg-5 mx-auto my-5">
+          <h1 class="display-4 font-weight-normal">OH-SHIT</h1>
+          <p class="lead font-weight-normal">Cái tên nói lên tất cả, tool này được viết trong 1 ngày để chuẩn bị cho buổi thi cuối kì nguyên lý
+            hệ điều hành. Vẫn còn một số lỗi (đoán vậy :3) và code thì siêu rối.</p>
+          <p class="lead font-weight-normal" style="color:red">Các bạn tùy ý chỉnh sửa/ thêm bớt (kể cả phần giới thiệu này) mà không cần xin phép</p>
+          <p class="lead font-weight-normal">Nếu bạn đang bắt đầu học nguyên lý hệ điều hành và biết đến sự hiện diện
+            của tool này (cũng như một số tool khác). Xin đừng quá phụ thuộc vào nó, tool chỉ giúp bạn tính toán không bị nhầm trong một số dạng
+            câu hỏi thôi (thậm trí là mình cũng không biết tool có chính xác không :v)</p>
+          <a class="btn btn-outline-secondary" href="https://www.facebook.com/jindojojin">Tác giả: Jindojojin</a>
+        </div>
+        <div class="product-device shadow-sm d-none d-md-block"></div>
+        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+      </div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,5 @@
+input {
+    word-wrap: break-word !important;
+    word-break: break-all !important;
+    height: 80px;
+}
