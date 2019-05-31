@@ -146,6 +146,9 @@ document.getElementById("v_page_table").addEventListener("click", function () {
     } else {
         main_memory_size = num_of_frame * frame_size;
     }
+    // số bit được dùng để đánh địa chỉ
+    document.getElementById("num_of_bit_for_page").value= howManyBit(num_of_page);
+    document.getElementById("num_of_bit_for_frame").value= howManyBit(num_of_frame);
     // dung lượng bộ nhớ chính
     document.getElementById("mm_size_byte").value = main_memory_size + " (byte)";
     document.getElementById("mm_size_KB").value = bit2KB(byte2bit(main_memory_size)) + " (KB)";
